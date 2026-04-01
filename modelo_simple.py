@@ -1,7 +1,7 @@
 import pandas as pd 
 
-df_seleccionados = pd.read_csv("data/postulantes_seleccionados.csv")
-df_no_seleccionados = pd.read_csv("data/postulantes_no_seleccionados.csv")
+df_seleccionados = pd.read_csv("data/postulantes_seleccionados.csv", dtype={"DNI": str})
+df_no_seleccionados = pd.read_csv("data/postulantes_no_seleccionados.csv", dtype={"DNI": str})
 
 df = pd.concat([df_seleccionados, df_no_seleccionados], ignore_index=True)
 
@@ -12,7 +12,7 @@ df_limpio = df[[
 
 df_limpio = df_limpio[df_limpio["MODALIDAD_BECA"] == "BECA 18 ORDINARIA"]
 
-df_limpio["DNI"] = df_limpio["DNI"].astype(str).str.strip()
+df_limpio["DNI"] = df_limpio["DNI"].astype(str).str.replace(".0", "", regex=False).str.strip()
 
 
 def mi_orden_merito(dni):
