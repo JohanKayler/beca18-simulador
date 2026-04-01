@@ -10,7 +10,7 @@ dni = st.text_input("Ingresa tu DNI")
 if st.button("Consultar"):
     resultado = mi_orden_merito(dni)
     
-    if resultado:
+    if resultado is not None:
         st.success("Resultado encontrado")
         st.write(f"Puntaje: {resultado['puntaje']}")
         st.write(f"Orden de mérito: {resultado['orden']} de {resultado['total_no_seleccionados']}")
@@ -18,5 +18,6 @@ if st.button("Consultar"):
         st.write(resultado["mensaje"])
     else:
         st.error("DNI no encontrado")
+
 st.markdown("---")
 st.caption("⚠️ Esta herramienta es solo una estimación y no garantiza resultados oficiales.")

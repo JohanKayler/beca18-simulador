@@ -9,9 +9,10 @@ df = pd.concat([df_seleccionados,df_no_seleccionados],  ignore_index=True)
 df_limpio = df[["MODALIDAD_BECA","DNI", "IES","CARRERA","CONCEPTO_A","CONCEPTO_B","PUNTAJE_FINAL","CONDICION"]]
 
 #Trabajaremos con solo la modalidad ordinaria
-df_limpio = df_limpio[df["MODALIDAD_BECA"]=="BECA 18 ORDINARIA"]
-
+df_limpio = df_limpio[df_limpio["MODALIDAD_BECA"]=="BECA 18 ORDINARIA"]
+df_limpio["DNI"] = df_limpio["DNI"].astype(str).str.strip()
 def mi_orden_merito(dni):
+    dni = str(dni).strip()
     no_sel = df_limpio[df_limpio["CONDICION"] == "NO SELECCIONADO"].copy()
     
     no_sel = no_sel.sort_values("PUNTAJE_FINAL", ascending=False).reset_index(drop=True)
@@ -45,3 +46,4 @@ def mi_orden_merito(dni):
         "top_percent": top_percent,
         "estimacion": mensaje
     }
+
