@@ -12,7 +12,7 @@ if st.button("Consultar"):
     
     if resultado is not None:
         st.success("Resultado encontrado")
-        st.write(f"Puntaje: {resultado['puntaje']}")
+        st.write(f"Puntaje: {resultado["puntaje"]}")
         st.write(f"Orden de mérito: {resultado['orden_merito']} de {resultado['total_no_seleccionados']}")
         st.write(f"Top {resultado['top_percent']}%")
         st.write(f"{resultado["estimacion"]}, recuerda que según las bases que yo leí son 2173 becas para el segundo momento para universidades :)")
