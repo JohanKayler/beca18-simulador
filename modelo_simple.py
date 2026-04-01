@@ -4,7 +4,7 @@ df_seleccionados = pd.read_csv("data/postulantes_seleccionados.csv")
 df_no_seleccionados = pd.read_csv("data/postulantes_no_seleccionados.csv")
 
 df = pd.concat([df_seleccionados,df_no_seleccionados],  ignore_index=True)
-print(df_seleccionados)
+
 #Limpiamos las columnas importantes
 df_limpio = df[["MODALIDAD_BECA","DNI", "IES","CARRERA","CONCEPTO_A","CONCEPTO_B","PUNTAJE_FINAL","CONDICION"]]
 

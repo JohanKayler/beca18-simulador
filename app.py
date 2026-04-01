@@ -12,12 +12,12 @@ if st.button("Consultar"):
     
     if resultado:
         st.success("Resultado encontrado")
-        st.write(f"Puntaje: {resultado['puntaje']}")
-        st.write(f"Orden de mérito: {resultado['orden']} de {resultado['total']}")
+        st.write(f"Puntaje: {resultado['PUNTAJE_FINAL']}")
+        st.write(f"Orden de mérito: {resultado['ORDEN_MERITO']} de {resultado['total']}")
         st.write(f"Top {resultado['percent']}%")
         st.write(resultado["mensaje"])
     else:
         st.error("DNI no encontrado")
-
+print(resultado["mensaje"])
 st.markdown("---")
 st.caption("⚠️ Esta herramienta es solo una estimación y no garantiza resultados oficiales.")
