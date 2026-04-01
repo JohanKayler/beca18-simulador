@@ -13,9 +13,9 @@ if st.button("Consultar"):
     if resultado is not None:
         st.success("Resultado encontrado")
         st.write(f"Puntaje: {resultado['puntaje']}")
-        st.write(f"Orden de mérito: {resultado['orden']} de {resultado['total_no_seleccionados']}")
-        st.write(f"Top {resultado['percent']}%")
-        st.write(resultado["mensaje"])
+        st.write(f"Orden de mérito: {resultado['orden_merito']} de {resultado['total_no_seleccionados']}")
+        st.write(f"Top {resultado['top_percent']}%")
+        st.write(resultado["estimacion"])
     else:
         st.error("DNI no encontrado")
 
